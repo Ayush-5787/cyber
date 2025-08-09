@@ -231,3 +231,32 @@ const ThreatAnalytics: React.FC = () => {
 };
 
 export default ThreatAnalytics;
+
+// Add India to the countries array
+{[
+  { country: 'United States', threats: 3245, flag: '🇺🇸' },
+  { country: 'China', threats: 2876, flag: '🇨🇳' },
+  { country: 'Russia', threats: 2134, flag: '🇷🇺' },
+  { country: 'Germany', threats: 1654, flag: '🇩🇪' },
+  { country: 'United Kingdom', threats: 1432, flag: '🇬🇧' },
+  { country: 'France', threats: 1298, flag: '🇫🇷' },
+  { country: 'Japan', threats: 1156, flag: '🇯🇵' },
+  { country: 'South Korea', threats: 987, flag: '🇰🇷' },
+  { country: 'India', threats: 1450, flag: '🇮🇳' }  // Added India here
+].map((country, index) => (
+  <div key={index} className="bg-gray-900 rounded-lg p-4 border border-gray-700">
+    <div className="flex items-center space-x-3 mb-2">
+      <span className="text-2xl">{country.flag}</span>
+      <div className="flex-1">
+        <p className="text-white font-medium">{country.country}</p>
+        <p className="text-sm text-gray-400">{country.threats.toLocaleString()} threats</p>
+      </div>
+    </div>
+    <div className="w-full bg-gray-700 rounded-full h-1">
+      <div 
+        className="h-1 bg-gradient-to-r from-red-500 to-orange-500 rounded-full"
+        style={{ width: `${(country.threats / 3245) * 100}%` }}
+      ></div>
+    </div>
+  </div>
+))}
